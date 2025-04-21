@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c75wxp5adw4t0"]
+
+[ext_resource type="Texture2D" uid="uid://bel4hh7qyvnf7" path="res://assets/art/flags/en.png" id="1_2ixma"]
+[ext_resource type="Script" path="res://scenes/flag.gd" id="1_hmwh7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ktmi"]
+radius = 31.257
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_hmwh7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2ixma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8ktmi")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]

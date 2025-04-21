@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://u23y88q4ligg"]
+
+[ext_resource type="Script" path="res://scripts/hand.gd" id="1_a76w5"]
+[ext_resource type="Texture2D" uid="uid://bb2dl34eiwv4j" path="res://assets/art/hand/hand_1.png" id="1_g33ml"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2cghg"]
+radius = 82.0244
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o7gx6"]
+radius = 104.077
+
+[sub_resource type="LabelSettings" id="LabelSettings_n1lea"]
+font_size = 38
+
+[node name="ThrowControl" type="Node2D"]
+position = Vector2(565, 318)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_a76w5")
+
+[node name="Hand" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+texture = ExtResource("1_g33ml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
+position = Vector2(80, 0)
+shape = SubResource("CircleShape2D_2cghg")
+
+[node name="Field" type="Area2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Field"]
+position = Vector2(6, 0)
+color = Color(1, 1, 1, 0.156863)
+polygon = PackedVector2Array(-6, 0, 164, -332, -177, -332)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Field"]
+position = Vector2(0, -226)
+shape = SubResource("CircleShape2D_o7gx6")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_n1lea")
+
+[connection signal="input_event" from="Hand" to="." method="_on_hand_input_event"]
+[connection signal="mouse_exited" from="Hand" to="." method="_on_hand_mouse_exited"]
+[connection signal="mouse_shape_entered" from="Hand" to="." method="_on_hand_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Hand" to="." method="_on_hand_mouse_shape_exited"]
+[connection signal="input_event" from="Field" to="." method="_on_field_input_event"]
+[connection signal="mouse_exited" from="Field" to="." method="_on_field_mouse_exited"]
+[connection signal="mouse_shape_entered" from="Field" to="." method="_on_field_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Field" to="." method="_on_field_mouse_shape_exited"]

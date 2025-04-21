@@ -1,0 +1,177 @@
+[gd_scene load_steps=13 format=3 uid="uid://5320br6j6krh"]
+
+[ext_resource type="Texture2D" uid="uid://bxhw8kdomd5xq" path="res://assets/art/table/table_background.png" id="1_6wt27"]
+[ext_resource type="Script" path="res://scripts/table.gd" id="1_tpptu"]
+[ext_resource type="Texture2D" uid="uid://cv02m6lbx588r" path="res://assets/art/UI/UI_time.png" id="4_83e6u"]
+[ext_resource type="Texture2D" uid="uid://p6xt5xefsyrl" path="res://assets/art/UI/UI_phrase_bubble2.png" id="5_aydlg"]
+[ext_resource type="Texture2D" uid="uid://cvy0g8un6wigy" path="res://assets/art/UI/end_button.png" id="6_2df4k"]
+[ext_resource type="PackedScene" uid="uid://u23y88q4ligg" path="res://scenes/hand.tscn" id="6_hg5yn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1qlx"]
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_6bhxd"]
+font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_gtqui"]
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iwtq2"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8c5n"]
+size = Vector2(422, 69)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ca06"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Table" type="Node2D"]
+script = ExtResource("1_tpptu")
+metadata/_edit_vertical_guides_ = [660.0, 737.0, 815.0, 896.0, 971.0, 1044.0, 1121.0, 1198.0]
+
+[node name="Back" type="Sprite2D" parent="."]
+texture = ExtResource("1_6wt27")
+centered = false
+
+[node name="BottomDicesZone" type="Node2D" parent="."]
+position = Vector2(658, 894)
+
+[node name="BottomComboZone" type="Node2D" parent="."]
+position = Vector2(1413, 820)
+
+[node name="TopDicesZone" type="Node2D" parent="."]
+position = Vector2(657, 156)
+
+[node name="TopComboZone" type="Node2D" parent="."]
+position = Vector2(472, 567)
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(606, 273, 565, 234, 1321, 233, 1280, 275)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Borders"]
+position = Vector2(331, 1555)
+rotation = -1.5708
+polygon = PackedVector2Array(779, 276, 729, 234, 1321, 233, 1280, 275)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Borders"]
+position = Vector2(1555, -326)
+rotation = 1.5708
+polygon = PackedVector2Array(601, 273, 560, 233, 1147, 233, 1100, 273)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Borders"]
+position = Vector2(1886, 1051)
+rotation = 3.14159
+polygon = PackedVector2Array(604, 275, 565, 229, 1319, 225, 1277, 274)
+
+[node name="BottomHand" parent="." instance=ExtResource("6_hg5yn")]
+visible = false
+position = Vector2(948, 727)
+
+[node name="TopHand" parent="." instance=ExtResource("6_hg5yn")]
+visible = false
+position = Vector2(948, 323)
+rotation = 3.14159
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="TimerSprite" type="Sprite2D" parent="."]
+position = Vector2(1762, 77)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_83e6u")
+
+[node name="Time" type="Label" parent="TimerSprite"]
+offset_left = -28.0
+offset_top = -40.0
+offset_right = 166.0
+offset_bottom = 37.0
+text = "ABZ"
+label_settings = SubResource("LabelSettings_c1qlx")
+horizontal_alignment = 1
+
+[node name="RoundLabel" type="Label" parent="."]
+offset_left = 764.0
+offset_top = 483.0
+offset_right = 1178.0
+offset_bottom = 555.0
+text = "Wait for a baddy..."
+label_settings = SubResource("LabelSettings_6bhxd")
+
+[node name="BottomDrinksZone" type="Node2D" parent="."]
+position = Vector2(410, 872)
+
+[node name="TopDrinksZone" type="Node2D" parent="."]
+position = Vector2(1404, 172)
+
+[node name="TopMultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/dice.tscn")
+spawn_path = NodePath("../TopSpawnContainer")
+spawn_limit = 2
+
+[node name="TopSpawnContainer" type="Node2D" parent="."]
+
+[node name="BottomMultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/dice.tscn")
+spawn_path = NodePath("../BottomSpawnContainer")
+spawn_limit = 2
+
+[node name="BottomSpawnContainer" type="Node2D" parent="."]
+
+[node name="Result" type="Node2D" parent="."]
+visible = false
+position = Vector2(945, 521)
+
+[node name="Sprite2D" type="Sprite2D" parent="Result"]
+position = Vector2(-17, 0)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_aydlg")
+
+[node name="WinLose" type="Label" parent="Result"]
+offset_left = -260.0
+offset_top = -109.0
+offset_right = 252.0
+offset_bottom = -26.0
+text = "WIN"
+label_settings = SubResource("LabelSettings_gtqui")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc" type="Label" parent="Result"]
+offset_left = -260.0
+offset_top = -51.0
+offset_right = 252.0
+offset_bottom = 32.0
+text = "Kind of Five vs Kind of Five"
+label_settings = SubResource("LabelSettings_iwtq2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Area2D" parent="Result"]
+position = Vector2(0, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="Result/Button"]
+position = Vector2(0, 65)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_2df4k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Result/Button"]
+position = Vector2(-2, 65.5)
+shape = SubResource("RectangleShape2D_v8c5n")
+
+[node name="Label" type="Label" parent="Result/Button"]
+offset_left = -205.0
+offset_top = 36.0
+offset_right = 206.0
+offset_bottom = 98.0
+text = "RETURN TO THE BAR"
+label_settings = SubResource("LabelSettings_0ca06")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="Result/Button" to="." method="_on_button_input_event"]

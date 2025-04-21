@@ -1,0 +1,38 @@
+{
+	"drinks": {
+		"Blood Mary": {
+			"type": "drink",
+			"price": 300
+		},
+		"Moscow Mule": {
+			"type": "drink",
+			"price": 300
+		},
+		"Absent": {
+			"type": "drink",
+			"price": 300
+		}
+	},
+	"dices": {
+		"General": {
+			"type": "dice",
+			"price": 100
+		},
+		"Joker": {
+			"type": "dice",
+			"price": 500
+		},
+		"Magnetic": {
+			"type": "dice",
+			"price": 300
+		},
+		"Resin": {
+			"type": "dice",
+			"price": 300
+		},
+		"Mimic": {
+			"type": "dice",
+			"price": 300
+		}
+	}
+}

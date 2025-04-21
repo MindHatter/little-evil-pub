@@ -1,0 +1,46 @@
+{
+	"drinks": {
+		"Blood Mary": {
+			"type": "drink",
+			"price": 0,
+			"desc": "Blood Mary \nJust a classic cocktail"
+		},
+		"Moscow Mule": {
+			"type": "drink",
+			"price": 150,
+			"desc": "Moscow Mule \nWides throw's range"
+		},
+		"Absent": {
+			"type": "drink",
+			"price": 700,
+			"desc": "Absent \nDestroy dices, opponent and pub"
+		}
+	},
+	"dices": {
+		"General": {
+			"type": "dice",
+			"price": 0,
+			"desc": "General dice \nNothing special"
+		},
+		"Joker": {
+			"type": "dice",
+			"price": 500,
+			"desc": "Joker dice \nSupriced dice"
+		},
+		"Magnetic": {
+			"type": "dice",
+			"price": 500,
+			"desc": "Magnetic dice \nMagnetizes nearby opponent dices"
+		},
+		"Resin": {
+			"type": "dice",
+			"price": 200,
+			"desc": "Resin dice \nDouble impulse"
+		},
+		"Mimic": {
+			"type": "dice",
+			"price": 200,
+			"desc": "Mimic dice \nCopy highest value of aliving dices on table"
+		}
+	}
+}

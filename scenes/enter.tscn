@@ -1,0 +1,161 @@
+[gd_scene load_steps=17 format=3 uid="uid://buu1rts43nts1"]
+
+[ext_resource type="Script" path="res://scripts/enter.gd" id="1_jdaf7"]
+[ext_resource type="Texture2D" uid="uid://6obby4nsq5l7" path="res://assets/art/entrance/entrance(full1).png" id="2_xvqdw"]
+[ext_resource type="Texture2D" uid="uid://d0i3aohltdvkv" path="res://assets/art/entrance/entrance(full2).png" id="3_ma72v"]
+[ext_resource type="Texture2D" uid="uid://celo8kjjhmp4k" path="res://assets/art/UI/UI_phrase_bubble.png" id="4_si5sy"]
+[ext_resource type="Texture2D" uid="uid://cvy0g8un6wigy" path="res://assets/art/UI/end_button.png" id="5_myyvr"]
+[ext_resource type="Texture2D" uid="uid://d0sg6v72w5uju" path="res://assets/art/entrance/entrance_portal_main.png" id="6_u77y3"]
+[ext_resource type="Texture2D" uid="uid://brw4yypga5ecd" path="res://assets/art/entrance/entrance_wall.png" id="7_bnveb"]
+[ext_resource type="Texture2D" uid="uid://brp5tn734lsv8" path="res://assets/art/entrance/entrance_door_opened.png" id="8_rif07"]
+[ext_resource type="Texture2D" uid="uid://b7fn8qffldves" path="res://assets/art/entrance/entrance_portal_light.png" id="9_iibwn"]
+[ext_resource type="Texture2D" uid="uid://bf1ji8l6fx3n5" path="res://assets/art/entrance/entrance_portal_effect.png" id="10_xgaxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gwbt"]
+size = Vector2(420.5, 632.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_juw6r"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oog8r"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5axrr"]
+size = Vector2(205, 73)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0p321"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmulu"]
+size = Vector2(215, 73)
+
+[node name="Enter" type="Node2D"]
+script = ExtResource("1_jdaf7")
+
+[node name="Closed" type="Node2D" parent="."]
+
+[node name="Wall" type="Sprite2D" parent="Closed"]
+texture = ExtResource("2_xvqdw")
+centered = false
+
+[node name="Door" type="Area2D" parent="Closed"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Closed/Door"]
+position = Vector2(978.75, 643.75)
+shape = SubResource("RectangleShape2D_6gwbt")
+
+[node name="Dialog" type="Node2D" parent="."]
+visible = false
+
+[node name="Wall" type="Sprite2D" parent="Dialog"]
+texture = ExtResource("3_ma72v")
+centered = false
+
+[node name="Bubble" type="Sprite2D" parent="Dialog"]
+position = Vector2(1054, 455)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_si5sy")
+centered = false
+
+[node name="UI" type="Node2D" parent="Dialog"]
+position = Vector2(0, 18)
+
+[node name="Label" type="Label" parent="Dialog/UI"]
+offset_left = 1117.0
+offset_top = 473.0
+offset_right = 1591.0
+offset_bottom = 547.0
+text = "???"
+label_settings = SubResource("LabelSettings_juw6r")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="EnterBtn" type="Area2D" parent="Dialog/UI"]
+visible = false
+position = Vector2(1120, 581)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dialog/UI/EnterBtn"]
+scale = Vector2(0.243151, 0.5)
+texture = ExtResource("5_myyvr")
+centered = false
+
+[node name="Label" type="Label" parent="Dialog/UI/EnterBtn"]
+offset_right = 211.0
+offset_bottom = 78.0
+text = "Enter the Pub"
+label_settings = SubResource("LabelSettings_oog8r")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog/UI/EnterBtn"]
+visible = false
+position = Vector2(107.5, 40.5)
+shape = SubResource("RectangleShape2D_5axrr")
+
+[node name="ExitBtn" type="Area2D" parent="Dialog/UI"]
+visible = false
+position = Vector2(1364, 581)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dialog/UI/ExitBtn"]
+scale = Vector2(0.253425, 0.5)
+texture = ExtResource("5_myyvr")
+centered = false
+
+[node name="Label" type="Label" parent="Dialog/UI/ExitBtn"]
+offset_right = 217.0
+offset_bottom = 77.0
+text = "Go Away"
+label_settings = SubResource("LabelSettings_0p321")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog/UI/ExitBtn"]
+position = Vector2(111.5, 40.5)
+shape = SubResource("RectangleShape2D_cmulu")
+
+[node name="Langs" type="Node2D" parent="Dialog/UI"]
+position = Vector2(1135, 618)
+
+[node name="Portal" type="Node2D" parent="."]
+visible = false
+
+[node name="Back" type="Sprite2D" parent="Portal"]
+position = Vector2(982, 646)
+scale = Vector2(1, 1.02707)
+texture = ExtResource("6_u77y3")
+
+[node name="Wall" type="Sprite2D" parent="Portal"]
+texture = ExtResource("7_bnveb")
+centered = false
+
+[node name="Door" type="Sprite2D" parent="Portal"]
+position = Vector2(598, 300)
+texture = ExtResource("8_rif07")
+centered = false
+
+[node name="Blur" type="Sprite2D" parent="Portal"]
+position = Vector2(81, 2)
+texture = ExtResource("9_iibwn")
+centered = false
+
+[node name="Effect" type="Sprite2D" parent="Portal"]
+position = Vector2(977, 644)
+texture = ExtResource("10_xgaxa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(971, 740)
+offset = Vector2(-10, -200)
+position_smoothing_enabled = true
+
+[connection signal="input_event" from="Closed/Door" to="." method="_on_door_input_event"]
+[connection signal="mouse_shape_entered" from="Closed/Door" to="." method="_on_door_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Closed/Door" to="." method="_on_door_mouse_shape_exited"]
+[connection signal="input_event" from="Dialog/UI/EnterBtn" to="." method="_on_enter_btn_input_event"]
+[connection signal="mouse_shape_entered" from="Dialog/UI/EnterBtn" to="." method="_on_enter_btn_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Dialog/UI/EnterBtn" to="." method="_on_enter_btn_mouse_shape_exited"]
+[connection signal="input_event" from="Dialog/UI/ExitBtn" to="." method="_on_exit_btn_input_event"]

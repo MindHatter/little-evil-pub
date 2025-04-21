@@ -1,0 +1,215 @@
+[gd_scene load_steps=37 format=3 uid="uid://bds6y1y54wy0w"]
+
+[ext_resource type="Script" path="res://scripts/dice.gd" id="1_b84ct"]
+[ext_resource type="Texture2D" uid="uid://wvd2w0myeoiv" path="res://assets/art/dices/general/dice_1.png" id="2_t2hm8"]
+[ext_resource type="Texture2D" uid="uid://grwf1rofjqi4" path="res://assets/art/dices/general/dice_2.png" id="3_tlbrr"]
+[ext_resource type="Texture2D" uid="uid://cu7tytk8atpqk" path="res://assets/art/dices/general/dice_3.png" id="4_g2stm"]
+[ext_resource type="Texture2D" uid="uid://cpyam6puexmvl" path="res://assets/art/dices/general/dice_4.png" id="5_t05ir"]
+[ext_resource type="Texture2D" uid="uid://fufp5xi844vy" path="res://assets/art/dices/general/dice_5.png" id="6_7lnax"]
+[ext_resource type="Texture2D" uid="uid://cbx5gpm0dcy2a" path="res://assets/art/dices/general/dice_6.png" id="7_av8u7"]
+[ext_resource type="Texture2D" uid="uid://bsj0uqwasv4a2" path="res://assets/art/dices/joker/2.table_dice_joker_1.png" id="8_o5k7y"]
+[ext_resource type="Texture2D" uid="uid://itij1swlh5k6" path="res://assets/art/dices/joker/2.table_dice_joker_2.png" id="9_03uom"]
+[ext_resource type="Texture2D" uid="uid://dia7khoml4n7" path="res://assets/art/dices/joker/2.table_dice_joker_3.png" id="10_8y8cl"]
+[ext_resource type="Texture2D" uid="uid://d1uh0vdudhdw3" path="res://assets/art/dices/joker/2.table_dice_joker_4.png" id="11_2t512"]
+[ext_resource type="Texture2D" uid="uid://c052crx67icvp" path="res://assets/art/dices/joker/2.table_dice_joker_5.png" id="12_x1ukm"]
+[ext_resource type="Texture2D" uid="uid://blmaqfrvrrv2c" path="res://assets/art/dices/joker/2.table_dice_joker_6.png" id="13_tjdgu"]
+[ext_resource type="Texture2D" uid="uid://stvvufib1n5e" path="res://assets/art/dices/magnetic/2.table_dice_magnetic_1.png" id="14_08sgb"]
+[ext_resource type="Texture2D" uid="uid://dgh0d3ug5rhn7" path="res://assets/art/dices/magnetic/2.table_dice_magnetic_2.png" id="15_7u4ka"]
+[ext_resource type="Texture2D" uid="uid://8o6qvi8284b5" path="res://assets/art/dices/magnetic/2.table_dice_magnetic_3.png" id="16_w3ylf"]
+[ext_resource type="Texture2D" uid="uid://dhni81627n0kl" path="res://assets/art/dices/magnetic/2.table_dice_magnetic_4.png" id="17_f513v"]
+[ext_resource type="Texture2D" uid="uid://dlhli6j8g6ffv" path="res://assets/art/dices/magnetic/2.table_dice_magnetic_5.png" id="18_biy0m"]
+[ext_resource type="Texture2D" uid="uid://cuvemeen1r6p" path="res://assets/art/dices/magnetic/2.table_dice_magnetic_66.png" id="19_i57ne"]
+[ext_resource type="Texture2D" uid="uid://d2s4pw58fg4in" path="res://assets/art/dices/mimic/2.table_dice_mimic_1.png" id="20_isl3u"]
+[ext_resource type="Texture2D" uid="uid://cvog6g2g7tsr6" path="res://assets/art/dices/mimic/2.table_dice_mimic_2.png" id="21_qrvxb"]
+[ext_resource type="Texture2D" uid="uid://bd6lobesd0875" path="res://assets/art/dices/mimic/2.table_dice_mimic_3.png" id="22_pslmk"]
+[ext_resource type="Texture2D" uid="uid://b1y50kjpsityg" path="res://assets/art/dices/mimic/2.table_dice_mimic_4.png" id="23_2mud6"]
+[ext_resource type="Texture2D" uid="uid://cfrigm5ngkvqv" path="res://assets/art/dices/mimic/2.table_dice_mimic_5.png" id="24_78vyk"]
+[ext_resource type="Texture2D" uid="uid://we5hhsjjk060" path="res://assets/art/dices/mimic/2.table_dice_mimic_6.png" id="25_17jk7"]
+[ext_resource type="Texture2D" uid="uid://7wmvlpn27x82" path="res://assets/art/dices/resin/2.table_dice_resin_1.png" id="26_lbrbn"]
+[ext_resource type="Texture2D" uid="uid://bcu5o13iwnovh" path="res://assets/art/dices/resin/2.table_dice_resin_2.png" id="27_ggshx"]
+[ext_resource type="Texture2D" uid="uid://cqmqa1flnc0or" path="res://assets/art/dices/resin/2.table_dice_resin_3.png" id="28_3tsh2"]
+[ext_resource type="Texture2D" uid="uid://cmbyridb1pm73" path="res://assets/art/dices/resin/2.table_dice_resin_4.png" id="29_dflou"]
+[ext_resource type="Texture2D" uid="uid://dfqyli788ma07" path="res://assets/art/dices/resin/2.table_dice_resin_5.png" id="30_7q2q5"]
+[ext_resource type="Texture2D" uid="uid://c2035vilsq0xf" path="res://assets/art/dices/resin/2.table_dice_resin_6.png" id="31_2hx5u"]
+[ext_resource type="Texture2D" uid="uid://cgsugk56a88kp" path="res://assets/art/dices/_destroy/2.table_trap2_main.png" id="37_sunat"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_75dpj"]
+friction = 0.1
+bounce = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dndho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t2hm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tlbrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g2stm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t05ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7lnax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_av8u7")
+}],
+"loop": true,
+"name": &"General",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_o5k7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_03uom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8y8cl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2t512")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_x1ukm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tjdgu")
+}],
+"loop": true,
+"name": &"Joker",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_08sgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_7u4ka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_w3ylf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_f513v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_biy0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_i57ne")
+}],
+"loop": true,
+"name": &"Magnetic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_isl3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qrvxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_pslmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_2mud6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_78vyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_17jk7")
+}],
+"loop": true,
+"name": &"Mimic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_lbrbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ggshx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_3tsh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_dflou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_7q2q5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_2hx5u")
+}],
+"loop": true,
+"name": &"Resin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_sunat")
+}],
+"loop": false,
+"name": &"_Destroy",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcn0c"]
+size = Vector2(327, 310)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xco7l"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("AnimatedSprite2D:animation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("AnimatedSprite2D:frame")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:rotation")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath(".:visible")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+
+[node name="Dice" type="RigidBody2D"]
+input_pickable = true
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_75dpj")
+max_contacts_reported = 1
+contact_monitor = true
+linear_damp = 1.5
+script = ExtResource("1_b84ct")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_dndho")
+animation = &"General"
+speed_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.15, 0.15)
+shape = SubResource("RectangleShape2D_tcn0c")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_xco7l")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("..")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

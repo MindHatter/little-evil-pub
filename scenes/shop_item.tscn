@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1k32pjapsp54"]
+
+[ext_resource type="Script" path="res://scripts/shop_item.gd" id="1_mxxf4"]
+[ext_resource type="Texture2D" uid="uid://dhwhxu0ymkqfg" path="res://assets/art/shop/dices/Joker.png" id="2_k8e37"]
+[ext_resource type="Texture2D" uid="uid://bft2w52p3acie" path="res://assets/art/UI/UI_price.png" id="3_158m8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4oxcb"]
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sv0cy"]
+radius = 127.252
+
+[node name="ShopItem" type="Area2D"]
+script = ExtResource("1_mxxf4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_k8e37")
+
+[node name="Price" type="Sprite2D" parent="."]
+position = Vector2(0, 20)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_158m8")
+centered = false
+
+[node name="Label" type="Label" parent="Price"]
+offset_left = 36.6667
+offset_top = 20.0
+offset_right = 174.667
+offset_bottom = 130.0
+text = "100"
+label_settings = SubResource("LabelSettings_4oxcb")
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.35, 0.35)
+shape = SubResource("CircleShape2D_sv0cy")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]

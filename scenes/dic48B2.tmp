@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://bds6y1y54wy0w"]
+
+[ext_resource type="Texture2D" uid="uid://wvd2w0myeoiv" path="res://assets/art/dices/player/dice_1.png" id="1_6hpqm"]
+[ext_resource type="Script" path="res://scripts/dice.gd" id="1_b84ct"]
+[ext_resource type="Texture2D" uid="uid://grwf1rofjqi4" path="res://assets/art/dices/player/dice_2.png" id="2_lgicp"]
+[ext_resource type="Texture2D" uid="uid://cu7tytk8atpqk" path="res://assets/art/dices/player/dice_3.png" id="3_o6edh"]
+[ext_resource type="Texture2D" uid="uid://cpyam6puexmvl" path="res://assets/art/dices/player/dice_4.png" id="4_c850f"]
+[ext_resource type="Texture2D" uid="uid://fufp5xi844vy" path="res://assets/art/dices/player/dice_5.png" id="5_nhvoi"]
+[ext_resource type="Texture2D" uid="uid://cbx5gpm0dcy2a" path="res://assets/art/dices/player/dice_6.png" id="6_28bgl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_75dpj"]
+friction = 0.1
+rough = true
+bounce = 5.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dndho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6hpqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lgicp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o6edh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c850f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nhvoi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_28bgl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcn0c"]
+size = Vector2(327, 310)
+
+[node name="Dice" type="RigidBody2D"]
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_75dpj")
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_b84ct")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_dndho")
+speed_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.15, 0.15)
+shape = SubResource("RectangleShape2D_tcn0c")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

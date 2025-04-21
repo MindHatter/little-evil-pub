@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://dn5xpr5lcy5mm"]
+
+[ext_resource type="Script" path="res://scripts/bar.gd" id="1_5o1j7"]
+[ext_resource type="Texture2D" uid="uid://cmp01nd4cv7la" path="res://assets/art/bar/bar_background.png" id="1_q533j"]
+[ext_resource type="Texture2D" uid="uid://be2qeyvgmg4wc" path="res://assets/art/bar/bar_background_stand.png" id="2_g7oay"]
+[ext_resource type="Texture2D" uid="uid://celo8kjjhmp4k" path="res://assets/art/UI/UI_phrase_bubble.png" id="3_ifru4"]
+[ext_resource type="Texture2D" uid="uid://vxlnp8rlb8oh" path="res://assets/art/chars/Barmen_color.png" id="4_1a2mv"]
+[ext_resource type="PackedScene" uid="uid://o62vboyive8" path="res://scenes/ready.tscn" id="4_eq7to"]
+[ext_resource type="Texture2D" uid="uid://ly85u7o0mufi" path="res://assets/art/UI/UI_wallet.png" id="5_rue5l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fohn"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cwxpf"]
+font_size = 56
+font_color = Color(0, 0, 0, 1)
+
+[node name="Bar" type="Node2D"]
+script = ExtResource("1_5o1j7")
+
+[node name="Back" type="Sprite2D" parent="."]
+texture = ExtResource("1_q533j")
+centered = false
+
+[node name="DrinksShop" type="Node2D" parent="."]
+position = Vector2(193, 345)
+
+[node name="DicesShop" type="Node2D" parent="."]
+position = Vector2(1381, 375)
+
+[node name="Barmen" type="Node2D" parent="."]
+position = Vector2(968, 644)
+
+[node name="Dialog" type="Sprite2D" parent="Barmen"]
+position = Vector2(-275, -214)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_ifru4")
+flip_h = true
+flip_v = true
+
+[node name="Text" type="Label" parent="Barmen"]
+offset_left = -414.0
+offset_top = -269.0
+offset_right = -144.0
+offset_bottom = -161.0
+text = "What? No, I speak only English. Just chooce drinks and dices"
+label_settings = SubResource("LabelSettings_6fohn")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Barmen"]
+position = Vector2(0, 5)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_1a2mv")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(0, 947)
+texture = ExtResource("2_g7oay")
+centered = false
+
+[node name="DrinksCounter" type="Node2D" parent="."]
+position = Vector2(505, 936)
+
+[node name="DicesCounter" type="Node2D" parent="."]
+position = Vector2(834, 956)
+
+[node name="Ready" parent="." instance=ExtResource("4_eq7to")]
+
+[node name="Wallet" type="Sprite2D" parent="."]
+position = Vector2(323, 945)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_rue5l")
+
+[node name="Label" type="Label" parent="Wallet"]
+anchors_preset = -1
+anchor_left = -0.0520833
+anchor_right = 0.458333
+anchor_bottom = 0.327586
+offset_left = -64.0
+offset_top = -2.0
+offset_right = -24.0
+offset_bottom = 21.0
+text = "1000"
+label_settings = SubResource("LabelSettings_cwxpf")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
